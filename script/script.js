@@ -5,7 +5,10 @@ console.log(typeof(money));
 let addExpenses = prompt('Перечислите возможные расходы за рассчитываемый период через запятую:');
 console.log(typeof(addExpenses));
 
-addExpenses = addExpenses.split(',');
+// вывод в нижнем регистре
+
+addExpenses = addExpenses.toLowerCase().split(',');
+
 console.log(addExpenses);
 
 let deposit = confirm('Есть ли у Вас депозит в банке?');
