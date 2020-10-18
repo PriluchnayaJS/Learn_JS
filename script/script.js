@@ -1,10 +1,9 @@
 'use strict';
 
-let money;
-
-let isNumber = function(n) {
-    return !isNaN(parseFloat(n)) && isFinite(n);
-}
+let money,
+    isNumber = function(n) {
+        return !isNaN(parseFloat(n)) && isFinite(n);
+    }
 
 let start = function() {
     //money = prompt('Ваш месячный доход?');
