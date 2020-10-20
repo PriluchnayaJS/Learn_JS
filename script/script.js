@@ -153,7 +153,7 @@ appData.addExpenses = appData.addExpenses.map(function(elem) {
 for (let key in appData.addExpenses) {
 
     appData.addExpenses[key] = appData.addExpenses[key].charAt(0).toUpperCase() + appData.addExpenses[key].slice(1);
-    // console.log(arr[key]);
+    // console.log(appData.addExpenses[key]);
 };
 
 console.log('Возможные расходы: ', appData.addExpenses.join(', '));
