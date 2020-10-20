@@ -34,11 +34,15 @@ let appData = {
     budgetMonth: 0,
     expensesMonth: 0,
     asking: function() {
+        //проверка на ввод
         if (confirm('Есть ли у Вас дополнительный источник заработка?')) {
             let itemIncome;
             do {
                 itemIncome = prompt('Какой у Вас дополнительный заработок?', 'Таксую');
             } while (isNumber(itemIncome));
+
+
+            // && !itemIncome.match(/\D*/)
 
             let cashIncome = prompt('Сколько в месяц Вы на этом зарабатываете?', 10000);
             while (!isNumber(cashIncome)) {
@@ -52,7 +56,7 @@ let appData = {
         appData.deposit = confirm('Есть ли у Вас депозит в банке?');
 
         for (let i = 0; i < 2; i++) {
-
+            //проверка на ввод
             let itemExpenses;
             do {
                 itemExpenses = prompt('Введите обязательную статью расходов:');
