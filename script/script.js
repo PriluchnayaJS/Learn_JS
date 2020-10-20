@@ -146,6 +146,10 @@ for (let key in appData) {
 appData.getInfoDeposit();
 
 
+appData.addExpenses = appData.addExpenses.map(function(elem) {
+    return elem.trim();
+});
+
 for (let key in appData.addExpenses) {
 
     appData.addExpenses[key] = appData.addExpenses[key].charAt(0).toUpperCase() + appData.addExpenses[key].slice(1);
