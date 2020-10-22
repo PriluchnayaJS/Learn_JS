@@ -1,63 +1,45 @@
 'use strict';
 let start = document.getElementById('start');
-console.log(start);
-
-let buttonPlus1 = document.getElementsByTagName('button')[0];
-console.log(buttonPlus1);
-
-let buttonPlus2 = document.getElementsByTagName('button')[1];
-console.log(buttonPlus2);
-
+//console.log(start); <Рассчитать>
+let btnPlus = document.getElementsByTagName('button'),
+    incomePlus = btnPlus[0],
+    expensesPlus = btnPlus[1];
+//console.log(incomePlus); //<+ дополнительные доходы>
+//console.log(expensesPlus); //<+ обязательные расходы>
 let depositChek = document.querySelector('#deposit-check');
-console.log(depositChek);
-
-let addIncome = document.querySelectorAll('.additional_income-item');
-console.log(addIncome);
-
-let budgetMonth = document.getElementsByClassName('budget_month-value');
-console.log(budgetMonth);
-
-let budgetDay = document.getElementsByClassName('budget_day-value');
-console.log(budgetDay);
-
-let expensesMonth = document.getElementsByClassName('expenses_month-value');
-console.log(expensesMonth);
-
-let additIncome = document.getElementsByClassName('additional_income-value');
-console.log(additIncome);
-
-let additExpenses = document.getElementsByClassName('additional_expenses-value');
-console.log(additExpenses);
-
-let incomPeriod = document.getElementsByClassName('income_period-value');
-console.log(incomPeriod);
-
-let targetMonth = document.getElementsByClassName('target_month-value');
-console.log(targetMonth);
-
-let moneyMonth = document.querySelector('.salary-amount');
-console.log(moneyMonth);
-
-let incomeItems = document.querySelectorAll('div>.income-title')[1];
-console.log(incomeItems);
-
+//console.log(depositChek);
+let additionalIncomeItem = document.querySelectorAll('.additional_income-item');
+//console.log(additionalIncomeItem); //возможные доходы
+let budgetMonthValue = document.getElementsByClassName('budget_month-value')[0];
+//console.log(budgetMonthValue); //вывод доход за месяц
+let budgetDayValue = document.getElementsByClassName('budget_day-value')[0];
+//console.log(budgetDayValue); //вывод дневной бюджет
+let expensesMonthValue = document.getElementsByClassName('expenses_month-value')[0];
+//console.log(expensesMonthValue); //вывод расход за месяц
+let additionalIncomeValue = document.getElementsByClassName('additional_income-value')[0];
+//console.log(additionalIncomeValue); //вывод возможные доходы
+let additionalExpensesValue = document.getElementsByClassName('additional_expenses-value')[0];
+//console.log(additionalExpensesValue); //вывод возможные расходы
+let incomePeriodValue = document.getElementsByClassName('income_period-value')[0];
+//console.log(incomePeriodValue); //вывод накопления за период
+let targetMonthValue = document.getElementsByClassName('target_month-value')[0];
+//console.log(targetMonthValue); //вывод срок достижения цели в месяцах
+let salaryAmount = document.querySelector('.salary-amount');
+//console.log(salaryAmount); //месячный доход
+let incomeTitle = document.querySelectorAll('div>.income-title')[1];
+//console.log(incomeTitle); //наименование дополнительного дохода
 let incomeAmout = document.querySelector('.income-amount');
-console.log(incomeAmout);
-
+//console.log(incomeAmout); //сумма дополнительного дохода
 let espensesItem = document.querySelectorAll('div>.expenses-title')[1];
-console.log(espensesItem);
-
+//console.log(espensesItem); //наименование обязательные расходы
 let expensesAmout = document.querySelector('.expenses-amount');
-console.log(expensesAmout);
-
-let addExpenses = document.querySelector('.additional_expenses-item');
-console.log(addExpenses);
-
+//console.log(expensesAmout); //сумма обязательных расходов
+let additionalExpensesItem = document.querySelector('.additional_expenses-item');
+//console.log(additionalExpensesItem); //возможные расходы (перечисление)
 let targetAmout = document.querySelector('.target-amount');
-console.log(targetAmout);
-
+//console.log(targetAmout); //цель накопить сумму
 let periodSelect = document.querySelector('.period-select');
-console.log(periodSelect);
+//console.log(periodSelect); //выбор периода
 
 
 
