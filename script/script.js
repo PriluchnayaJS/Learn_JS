@@ -75,6 +75,8 @@ let appData = {
     expensesMonth: 0,
     start: function() {
 
+
+
         // if (salaryAmount.value === '') {
         //     alert('Ошибка, поле "Месячный доход" должно быть заполнено!');
         //     return;
@@ -233,28 +235,6 @@ let appData = {
         });
     },
 
-    // asking: function() {
-    //     //условие перенесено в getIncome()
-    //     let addExpenses = prompt('Перечислите возможные расходы за рассчитываемый период через запятую:');
-    //     appData.addExpenses = addExpenses.toLowerCase().split(',');
-    //     appData.deposit = confirm('Есть ли у Вас депозит в банке?');
-
-    //     // for (let i = 0; i < 2; i++) {
-
-    //     //     let itemExpenses;
-    //     //     do {
-    //     //         itemExpenses = prompt('Введите обязательную статью расходов:');
-    //     //     } while (isNumber(itemExpenses));
-
-    //     //     let cashExpenses = prompt('Во сколько это обойдется?');
-    //     //     //проверка на правильность ввода расходов
-    //     //     while (!isNumber(cashExpenses)) {
-    //     //         cashExpenses = prompt('Во сколько это обойдется? ');
-    //     //     }
-    //     //     appData.expenses[itemExpenses] = +cashExpenses;
-    //     // }
-
-    // },
     getExpensesMonth: function() {
 
         for (let key in appData.expenses) {
@@ -302,6 +282,7 @@ let appData = {
     // }
 };
 
+alert('Поле "Месячный доход" должно быть заполнено!');
 //откл кнопки
 document.querySelector('#start').disabled = true;
 
