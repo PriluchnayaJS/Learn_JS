@@ -4,7 +4,7 @@ const todoControl = document.querySelector('.todo-control'), //div а плана
     headerInput = document.querySelector('.header-input'), //ввод какие планы
     todoList = document.querySelector('.todo-list'), //дела для выполнения
     todoCompleted = document.querySelector('.todo-completed'); //выполненные дела
-const todoContainerLi = document.querySelectorAll('ul>.todo-item');
+//const todoContainerLi = document.querySelectorAll('ul>.todo-item');
 
 
 //массив дел
