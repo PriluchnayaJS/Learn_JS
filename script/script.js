@@ -91,7 +91,7 @@ let appData = {
         this.getBudget();
 
         this.showResult();
-        //console.log(this);
+        // console.log(this);
     },
 
     rangePeriod: function() {
@@ -306,17 +306,40 @@ let appData = {
         if (incomePlus.style.display === 'none') {
             incomePlus.style.display = 'block';
         };
+
         if (expensesPlus.style.display === 'none') {
             expensesPlus.style.display = 'block';
         };
 
-        let resultData = document.querySelectorAll('.result input[type="text"]');;
+        if (depositChek) {
+            depositChek.checked = false;
+        };
+
+
+        let resultData = document.querySelectorAll('.result input[type="text"]');
         resultData.forEach(function(e) {
             e.value = '';
         });
 
+        this.budget = 0;
+        this.income = {};
+        this.incomeMonth = 0;
+        this.addIncome = [];
+        this.expenses = {};
+        this.addExpenses = [];
+        this.deposit = false;
+        this.persentDeposit = 0;
+        this.moneyDeposit = 0;
+        this.budgetDay = 0;
+        this.budgetMonth = 0;
+        this.expensesMonth = 0;
 
-    },
+
+
+
+        console.log(this);
+
+    }
 
 
     //расчет периода накопления
@@ -352,7 +375,9 @@ incomePlus.addEventListener('click', appData.addIncomeBlock);
 expensesPlus.addEventListener('click', appData.addExpensesBlock);
 
 //сброс
-cancel.addEventListener('click', appData.reset);
+let resetBind = appData.reset.bind(appData);
+
+cancel.addEventListener('click', resetBind);
 
 
 
