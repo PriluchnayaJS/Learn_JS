@@ -55,7 +55,7 @@ const cancel = document.getElementById('cancel');
 //console.log(cancel);
 
 //не используется
-const isNumber = function(n) {
+const isNumber = (n) => {
     return !isNaN(parseFloat(n)) && isFinite(n);
 }
 
@@ -92,7 +92,7 @@ AppData.prototype.start = function() {
 
 AppData.prototype.rangePeriod = function() {
     //отображение периода
-    const eventRange = function() {
+    const eventRange = () => {
         titlePeriodAmount.textContent = periodSelect.value;
     };
     periodSelect.addEventListener('input', eventRange);
@@ -101,7 +101,7 @@ AppData.prototype.rangePeriod = function() {
 
 AppData.prototype.ButtonStart = function() {
 
-    const clickBtn = function() {
+    const clickBtn = () => {
         document.getElementById('start').disabled = false;
     };
 
@@ -120,7 +120,7 @@ AppData.prototype.showResult = function() {
     targetMonthValue.value = this.getTargetMonth();
 
     //вывод накоплений за период согласно range
-    const calcPeriod = function() {
+    const calcPeriod = () => {
         incomePeriodValue.value = periodSelect.value * _this.budgetMonth;
     };
     periodSelect.addEventListener('input', calcPeriod);
@@ -154,26 +154,26 @@ AppData.prototype.addIncomeBlock = function() {
 };
 
 AppData.prototype.getExpenses = function() {
-    const _this = this;
+    //const _this = this;
     //получение всех расходов и запись их в объект
-    expensesItems.forEach(function(item) {
+    expensesItems.forEach((item) => {
         // console.log(item);
         const itemExpenses = item.querySelector('.expenses-title').value;
         const cashExpenses = item.querySelector('.expenses-amount').value;
         if (itemExpenses !== '' && cashExpenses !== '') {
-            _this.expenses[itemExpenses] = cashExpenses;
+            this.expenses[itemExpenses] = cashExpenses;
         };
     });
     //console.log(this);
 };
 //дополнительные доходы
 AppData.prototype.getIncome = function() {
-    const _this = this;
-    incomeItem.forEach(function(item) {
+    //const _this = this;
+    incomeItem.forEach((item) => {
         const itemIncome = item.querySelector('.income-title').value;
         const cashIncome = item.querySelector('.income-amount').value;
         if (itemIncome !== '' && cashIncome !== '') {
-            _this.income[itemIncome] = +cashIncome;
+            this.income[itemIncome] = +cashIncome;
         };
     });
 
@@ -184,25 +184,25 @@ AppData.prototype.getIncome = function() {
 };
 
 AppData.prototype.getAddExpenses = function() {
-    const _this = this;
+    //const _this = this;
     //вывод возможных расходов
     const addExpenses = additionalExpensesItem.value.split(',');
-    addExpenses.forEach(function(item) {
+    addExpenses.forEach((item) => {
         item = item.trim();
         if (item !== '') {
-            _this.addExpenses.push(item);
+            this.addExpenses.push(item);
         };
     });
 };
 
 AppData.prototype.getAddIncome = function() {
-    const _this = this;
+    //const _this = this;
     //вывод возможных доходов
-    additionalIncomeItem.forEach(function(item) {
+    additionalIncomeItem.forEach((item) => {
         let itemValue = item.value.trim();
 
         if (itemValue !== '') {
-            _this.addIncome.push(itemValue);
+            this.addIncome.push(itemValue);
         };
     });
 };
@@ -304,7 +304,7 @@ AppData.prototype.reset = function() {
     };
 
     const resultData = document.querySelectorAll('.result input[type="text"]');
-    resultData.forEach(function(e) {
+    resultData.forEach((e) => {
         e.value = '';
     });
 
