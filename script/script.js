@@ -17,7 +17,8 @@ DomElement.prototype.selectorText = function() {
         //div.classList.add('this.selector');
         let div = document.createElement('div');
         div.innerHTML = selText;
-        div.className = this.selector;
+        div.className = this.selector.substring(1);
+        //div.className = this.selector;
         div.style.cssText = `height: ${this.height};
                             background-color: ${this.bg};
                             width: ${this.width};
@@ -26,7 +27,8 @@ DomElement.prototype.selectorText = function() {
 
     } else if (this.selector.slice(0, 1) === '#') {
         let p = document.createElement('p');
-        p.id = this.selector;
+        p.id = this.selector.substring(1);
+        //p.id = this.selector;
         p.innerHTML = selText;
         p.style.cssText = `height: ${this.height};
                             background-color: ${this.bg};
