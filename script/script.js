@@ -1,45 +1,45 @@
 'use strict';
-let start = document.getElementById('start');
+const start = document.getElementById('start');
 //console.log(start); <Рассчитать>
-let btnPlus = document.getElementsByTagName('button'),
+const btnPlus = document.getElementsByTagName('button'),
     incomePlus = btnPlus[0],
     expensesPlus = btnPlus[1];
 //console.log(incomePlus); //<+ дополнительные доходы>
 //console.log(expensesPlus); //<+ обязательные расходы>
-let depositChek = document.querySelector('#deposit-check');
+const depositChek = document.querySelector('#deposit-check');
 //console.log(depositChek);
-let additionalIncomeItem = document.querySelectorAll('.additional_income-item');
+const additionalIncomeItem = document.querySelectorAll('.additional_income-item');
 //console.log(additionalIncomeItem); //возможные доходы
-let budgetMonthValue = document.getElementsByClassName('budget_month-value')[0];
+const budgetMonthValue = document.getElementsByClassName('budget_month-value')[0];
 //console.log(budgetMonthValue); //вывод доход за месяц
-let budgetDayValue = document.getElementsByClassName('budget_day-value')[0];
+const budgetDayValue = document.getElementsByClassName('budget_day-value')[0];
 //console.log(budgetDayValue); //вывод дневной бюджет
-let expensesMonthValue = document.getElementsByClassName('expenses_month-value')[0];
+const expensesMonthValue = document.getElementsByClassName('expenses_month-value')[0];
 //console.log(expensesMonthValue); //вывод расход за месяц
-let additionalIncomeValue = document.getElementsByClassName('additional_income-value')[0];
+const additionalIncomeValue = document.getElementsByClassName('additional_income-value')[0];
 //console.log(additionalIncomeValue); //вывод возможные доходы
-let additionalExpensesValue = document.getElementsByClassName('additional_expenses-value')[0];
+const additionalExpensesValue = document.getElementsByClassName('additional_expenses-value')[0];
 //console.log(additionalExpensesValue); //вывод возможные расходы
-let incomePeriodValue = document.getElementsByClassName('income_period-value')[0];
+const incomePeriodValue = document.getElementsByClassName('income_period-value')[0];
 //console.log(incomePeriodValue); //вывод накопления за период
-let targetMonthValue = document.getElementsByClassName('target_month-value')[0];
+const targetMonthValue = document.getElementsByClassName('target_month-value')[0];
 //console.log(targetMonthValue); //вывод срок достижения цели в месяцах
-let salaryAmount = document.querySelector('.salary-amount');
+const salaryAmount = document.querySelector('.salary-amount');
 //console.log(salaryAmount); //месячный доход
-let incomeTitle = document.querySelectorAll('div>.income-title')[1];
+const incomeTitle = document.querySelectorAll('div>.income-title')[1];
 //console.log(incomeTitle); //наименование дополнительного дохода
 //let incomeAmout = document.querySelector('.income-amount');
 //console.log(incomeAmout); //сумма дополнительного дохода
-let espensesItem = document.querySelectorAll('div>.expenses-title')[1];
+const espensesItem = document.querySelectorAll('div>.expenses-title')[1];
 //console.log(espensesItem); //наименование обязательные расходы
 let expensesItems = document.querySelectorAll('.expenses-items');
 //let expensesAmout = document.querySelector('.expenses-amount');
 //console.log(expensesAmout); //сумма обязательных расходов
-let additionalExpensesItem = document.querySelector('.additional_expenses-item');
+const additionalExpensesItem = document.querySelector('.additional_expenses-item');
 //console.log(additionalExpensesItem); //возможные расходы (перечисление)
-let targetAmount = document.querySelector('.target-amount');
+const targetAmount = document.querySelector('.target-amount');
 //console.log(targetAmout); //цель накопить сумму
-let periodSelect = document.querySelector('.period-select');
+const periodSelect = document.querySelector('.period-select');
 //console.log(periodSelect); //выбор периода
 let incomeItem = document.querySelectorAll('.income-items');
 //console.log(incomeItem); //дополнительные доходы
@@ -47,14 +47,15 @@ let incomeItem = document.querySelectorAll('.income-items');
 //console.log(buttonStart); //кнопка Рассчитать
 
 
-let divAll = document.querySelectorAll('div');
+const divAll = document.querySelectorAll('div');
 let titlePeriodAmount = divAll[19];
 //console.log(titlePeriodAmount); //для вывода значения периода
 
-let cancel = document.getElementById('cancel');
+const cancel = document.getElementById('cancel');
 //console.log(cancel);
 
-let isNumber = function(n) {
+//не используется
+const isNumber = function(n) {
     return !isNaN(parseFloat(n)) && isFinite(n);
 }
 
@@ -91,7 +92,7 @@ AppData.prototype.start = function() {
 
 AppData.prototype.rangePeriod = function() {
     //отображение периода
-    let eventRange = function() {
+    const eventRange = function() {
         titlePeriodAmount.textContent = periodSelect.value;
     };
     periodSelect.addEventListener('input', eventRange);
@@ -100,7 +101,7 @@ AppData.prototype.rangePeriod = function() {
 
 AppData.prototype.ButtonStart = function() {
 
-    let clickBtn = function() {
+    const clickBtn = function() {
         document.getElementById('start').disabled = false;
     };
 
@@ -119,7 +120,7 @@ AppData.prototype.showResult = function() {
     targetMonthValue.value = this.getTargetMonth();
 
     //вывод накоплений за период согласно range
-    let calcPeriod = function() {
+    const calcPeriod = function() {
         incomePeriodValue.value = periodSelect.value * _this.budgetMonth;
     };
     periodSelect.addEventListener('input', calcPeriod);
@@ -131,7 +132,7 @@ AppData.prototype.showResult = function() {
 
 AppData.prototype.addExpensesBlock = function() {
     //обязательные расходы
-    let cloneExpensesItems = expensesItems[0].cloneNode('true');
+    const cloneExpensesItems = expensesItems[0].cloneNode('true');
     expensesItems[0].parentNode.insertBefore(cloneExpensesItems, expensesPlus);
 
     expensesItems = document.querySelectorAll('.expenses-items');
@@ -143,7 +144,7 @@ AppData.prototype.addExpensesBlock = function() {
 
 AppData.prototype.addIncomeBlock = function() {
     //дополнительные доходы
-    let cloneIncomeItems = incomeItem[0].cloneNode('true');
+    const cloneIncomeItems = incomeItem[0].cloneNode('true');
     incomeItem[0].parentNode.insertBefore(cloneIncomeItems, incomePlus);
     incomeItem = document.querySelectorAll('.income-items');
     if (incomeItem.length === 3) {
@@ -157,8 +158,8 @@ AppData.prototype.getExpenses = function() {
     //получение всех расходов и запись их в объект
     expensesItems.forEach(function(item) {
         // console.log(item);
-        let itemExpenses = item.querySelector('.expenses-title').value;
-        let cashExpenses = item.querySelector('.expenses-amount').value;
+        const itemExpenses = item.querySelector('.expenses-title').value;
+        const cashExpenses = item.querySelector('.expenses-amount').value;
         if (itemExpenses !== '' && cashExpenses !== '') {
             _this.expenses[itemExpenses] = cashExpenses;
         };
@@ -169,8 +170,8 @@ AppData.prototype.getExpenses = function() {
 AppData.prototype.getIncome = function() {
     const _this = this;
     incomeItem.forEach(function(item) {
-        let itemIncome = item.querySelector('.income-title').value;
-        let cashIncome = item.querySelector('.income-amount').value;
+        const itemIncome = item.querySelector('.income-title').value;
+        const cashIncome = item.querySelector('.income-amount').value;
         if (itemIncome !== '' && cashIncome !== '') {
             _this.income[itemIncome] = +cashIncome;
         };
@@ -185,7 +186,7 @@ AppData.prototype.getIncome = function() {
 AppData.prototype.getAddExpenses = function() {
     const _this = this;
     //вывод возможных расходов
-    let addExpenses = additionalExpensesItem.value.split(',');
+    const addExpenses = additionalExpensesItem.value.split(',');
     addExpenses.forEach(function(item) {
         item = item.trim();
         if (item !== '') {
@@ -260,7 +261,7 @@ AppData.prototype.getInfoDeposit = function() {
 
 AppData.prototype.inputBlock = function() {
     //все input с type=text
-    let inputData = document.querySelectorAll('.data input[type="text"]');
+    const inputData = document.querySelectorAll('.data input[type="text"]');
     //console.log(inputData);
     inputData.forEach(function(e) {
         e.setAttribute('disabled', '');
@@ -272,7 +273,7 @@ AppData.prototype.inputBlock = function() {
 AppData.prototype.reset = function() {
     start.style.display = 'block';
     cancel.style.display = 'none';
-    let inputData = document.querySelectorAll('.data input[type="text"]');
+    const inputData = document.querySelectorAll('.data input[type="text"]');
     inputData.forEach(function(e) {
         e.removeAttribute('disabled', '');
         e.value = '';
@@ -302,7 +303,7 @@ AppData.prototype.reset = function() {
         depositChek.checked = false;
     };
 
-    let resultData = document.querySelectorAll('.result input[type="text"]');
+    const resultData = document.querySelectorAll('.result input[type="text"]');
     resultData.forEach(function(e) {
         e.value = '';
     });
@@ -334,7 +335,7 @@ AppData.prototype.eventsListeners = function() {
 
     //привязка контента метода start
 
-    let startBind = this.start.bind(this);
+    const startBind = this.start.bind(this);
     //console.log(startBind);
     start.addEventListener('click', startBind);
     //start.addEventListener('click', appData.start);
@@ -347,7 +348,7 @@ AppData.prototype.eventsListeners = function() {
     expensesPlus.addEventListener('click', this.addExpensesBlock);
 
     //сброс
-    let resetBind = this.reset.bind(this);
+    const resetBind = this.reset.bind(this);
 
     cancel.addEventListener('click', resetBind);
 
