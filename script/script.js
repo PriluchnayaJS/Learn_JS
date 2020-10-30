@@ -334,7 +334,6 @@ appData.eventsListeners();
 
 
 /*
-
 AppData.prototype.getStatusIncome = function() {
     //метод не нужен
     if (this.budgetDay >= 1200) {
@@ -347,9 +346,7 @@ AppData.prototype.getStatusIncome = function() {
     } else {
         return ('Что то пошло не так');
     };
-
 };
-
 AppData.prototype.getInfoDeposit = function() {
     const _this = this;
     // метод не нужен
@@ -364,37 +361,26 @@ AppData.prototype.getInfoDeposit = function() {
         };
     };
 };
-
 */
 
 /*
 //перенос в метод eventsListeners
 //откл кнопки
 document.querySelector('#start').disabled = true;
-
 appData.ButtonStart(); //включение кнопки Рассчитать
-
 appData.rangePeriod();
-
 //привязка контента метода start
-
 let startBind = appData.start.bind(appData);
 //console.log(startBind);
 start.addEventListener('click', startBind);
 //start.addEventListener('click', appData.start);
-
 //отключение input
 start.addEventListener('click', appData.inputBlock);
-
 incomePlus.addEventListener('click', appData.addIncomeBlock);
-
 expensesPlus.addEventListener('click', appData.addExpensesBlock);
-
 //сброс
 let resetBind = appData.reset.bind(appData);
-
 cancel.addEventListener('click', resetBind);
-
 */
 
 
@@ -403,16 +389,11 @@ cancel.addEventListener('click', resetBind);
 // // for (let key in appData) {
 // //     console.log(`${key}: ${appData[key]}`);
 // // };
-
 // appData.getInfoDeposit();
-
-
 // appData.addExpenses = appData.addExpenses.map(function(elem) {
 //     return elem.trim();
 // });
-
 // for (let key in appData.addExpenses) {
-
 //     appData.addExpenses[key] = appData.addExpenses[key].charAt(0).toUpperCase() + appData.addExpenses[key].slice(1);
 // // console.log(appData.addExpenses[key]);
 // };*/
