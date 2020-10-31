@@ -64,20 +64,20 @@ const isNumber = (n) => {
 
 class AppData {
 
-    constructor(budget = 0, income = {}, incomeMonth = 0, addIncome = [], expenses = {}, addExpenses = [], deposit = false, persentDeposit = 0, moneyDeposit = 0, budgetDay = 0, budgetMonth = 0, expensesMonth = 0) {
+    constructor() {
 
-        this.budget = budget;
-        this.income = income;
-        this.incomeMonth = incomeMonth;
-        this.addIncome = addIncome;
-        this.expenses = expenses;
-        this.addExpenses = addExpenses;
-        this.deposit = deposit;
-        this.persentDeposit = persentDeposit;
-        this.moneyDeposit = moneyDeposit;
-        this.budgetDay = budgetDay;
-        this.budgetMonth = budgetMonth;
-        this.expensesMonth = expensesMonth;
+        this.budget = 0;
+        this.income = {};
+        this.incomeMonth = 0;
+        this.addIncome = [];
+        this.expenses = {};
+        this.addExpenses = [];
+        this.deposit = false;
+        this.persentDeposit = 0;
+        this.moneyDeposit = 0;
+        this.budgetDay = 0;
+        this.budgetMonth = 0;
+        this.expensesMonth = 0;
 
     }
     start() {
