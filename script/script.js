@@ -308,10 +308,14 @@ class AppData {
             if (isNumber(+depositPercent.value) && (+depositPercent.value > 0) && (+depositPercent.value <= 100)) {
                 this.persentDeposit = +depositPercent.value;
             } else {
+                // const inpPrc = () => {
+                //     depositPercent.value.replace(0);
+                // };
+                // depositPercent.addEventListener('input', inpPrc);
                 alert('Значение процента по депозиту из-за некорректного ввода не будет учтено!');
                 depositPercent.value = '0';
-                //this.persentDeposit = +depositPercent.value;
-            }
+
+            };
             this.moneyDeposit = +depositAmount.value;
         };
 
