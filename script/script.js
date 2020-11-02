@@ -83,6 +83,7 @@ class AppData {
     start() {
 
         this.budget = +salaryAmount.value;
+
         this.getExpenses();
         this.getIncome();
         this.getExpensesMonth();
@@ -107,10 +108,18 @@ class AppData {
     ButtonStart() {
 
         const clickBtn = () => {
-            document.getElementById('start').disabled = false;
+            console.log('hello');
+            if (isNumber(salaryAmount.value) && (!depositCheck.checked || depositBank.value !== 'other' ||
+                    isNumber(depositPercent.value) && +depositPercent.value > 0 && +depositPercent.value <= 100))
+                document.getElementById('start').disabled = false;
+            else
+                document.getElementById('start').disabled = true;
         };
 
         salaryAmount.addEventListener('input', clickBtn);
+        depositPercent.addEventListener('input', clickBtn);
+        depositCheck.addEventListener('input', clickBtn);
+        depositBank.addEventListener('input', clickBtn);
     };
 
     showResult() {
@@ -304,18 +313,20 @@ class AppData {
     getInfoDeposit() {
         if (this.deposit) {
             //написать проверку ввода данных в поле процента
-            // this.persentDeposit = +depositPercent.value; //преобразование в number
-            if (isNumber(+depositPercent.value) && (+depositPercent.value > 0) && (+depositPercent.value <= 100)) {
-                this.persentDeposit = +depositPercent.value;
-            } else {
-                // const inpPrc = () => {
-                //     depositPercent.value.replace(0);
-                // };
-                // depositPercent.addEventListener('input', inpPrc);
-                alert('Значение процента по депозиту из-за некорректного ввода не будет учтено!');
-                depositPercent.value = '0';
+            // //this.persentDeposit = +depositPercent.value; //преобразование в number
+            // if (isNumber(+depositPercent.value) && (+depositPercent.value > 0) && (+depositPercent.value <= 100)) {
 
-            };
+            this.persentDeposit = +depositPercent.value;
+
+            //  } else {
+            // const inpPrc = () => {
+            //     depositPercent.value.replace(0);
+            // };
+            // depositPercent.addEventListener('input', inpPrc);
+
+            // alert('Значение процента по депозиту из-за некорректного ввода не будет учтено!');
+            //depositPercent.value = '0';
+            // };
             this.moneyDeposit = +depositAmount.value;
         };
 
