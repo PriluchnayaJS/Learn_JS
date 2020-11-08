@@ -15,8 +15,10 @@ class Todo {
     render() {
         this.todoList.textContent = '';
         this.todoCompleted.textContent = '';
+
         this.todoData.forEach(this.createItem, this);
         this.addToStorage();
+
     }
 
     createItem(todo) {
@@ -24,6 +26,9 @@ class Todo {
         const li = document.createElement('li');
         li.classList.add('todo-item');
         li.key = todo.key; //добавление ключа
+
+        // console.log(li.key);
+
         li.insertAdjacentHTML('beforeend', `
         <span class="text-todo">${todo.value}</span>
         <div class="todo-buttons">
@@ -38,6 +43,10 @@ class Todo {
             this.todoList.append(li);
         };
 
+        if (todo) {
+            this.input.value = '';
+        };
+
     }
 
     addTodo(e) {
@@ -46,7 +55,7 @@ class Todo {
         if (this.input.value.trim()) {
             const newTodo = {
                 value: this.input.value,
-                completed: true,
+                completed: false,
                 key: this.generateKey(),
             };
             this.todoData.set(newTodo.key, newTodo);
@@ -60,25 +69,60 @@ class Todo {
 
     }
 
-    deleteItem() {
+    deleteItem(key) {
         //по ключу найти элемент и удалить его из new Map(), render()
+        this.todoData.delete(key);
+        this.render();
+    }
+
+    completedItem(key) {
+        //перебрать через forEach все значения по ключу и которые нажали - поменять их значения
+
+        this.todoData.forEach((todo, i) => {
+            if (i === key) {
+                todo.completed = !todo.completed;
+            };
+            this.render();
+        });
 
     }
 
-    completedItem() {
-        //перебрать через forEach все значения по ключу и которые нажали - поменять их занчения
-
-    }
 
     //на  какую кнопку нажал пользователь
     handler() {
         //делегирование
+        const todoContainer = document.querySelector('.todo-container');
+
+        todoContainer.addEventListener('click', (event) => {
+            const target = event.target;
+            let key = target.closest('li').key;
+
+            if (target.matches('.todo-complete')) {
+                this.completedItem(key);
+                // console.log(key);
+
+            };
+            if (target.matches('.todo-remove')) {
+                this.deleteItem(key);
+                // console.log(target.closest('li').key);
+            };
+        });
 
     }
 
+    alert() {
+        let div = document.createElement('div');
+        div.className = "alert";
+        div.innerHTML = "<strong>Друзья! Пустое дело добавить нельзя.</strong>";
+        document.body.prepend(div);
+        setTimeout(() => div.remove(), 5000);
+    }
+
     init() {
+        this.alert();
         this.form.addEventListener('submit', this.addTodo.bind(this));
         this.render();
+        this.handler();
     }
 
 
